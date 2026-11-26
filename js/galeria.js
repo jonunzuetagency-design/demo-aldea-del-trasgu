@@ -39,11 +39,17 @@
   const items = [...grid.children];
   $('#gCount').textContent = PICS.length;
 
-  const io = new IntersectionObserver(es => {
+  let pend = items.slice();
+  const tick = () => {
     let k = 0;
-    es.forEach(en => { if (en.isIntersecting) { en.target.style.setProperty('--d', (k++ % 6) * 0.07 + 's'); en.target.classList.add('in'); io.unobserve(en.target); } });
-  }, { rootMargin: '0px 0px -5% 0px', threshold: .08 });
-  items.forEach(el => io.observe(el));
+    pend = pend.filter(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight * 0.95 && r.bottom > 0) { el.style.setProperty('--d', (k++ % 6) * 0.07 + 's'); el.classList.add('in'); return false; }
+      return true;
+    });
+    if (pend.length) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
 
   // filtros
   let list = PICS.map((_, i) => i);

@@ -56,14 +56,19 @@
   }));
 
   /* ---------- Reveals con clip-path (escalonados por grupo) ---------- */
-  const io = new IntersectionObserver(es => es.forEach(en => {
-    if (!en.isIntersecting) return;
-    const el = en.target, sibs = $$('[data-reveal]', el.parentElement).filter(s => !s.classList.contains('in'));
-    const i = Math.max(0, sibs.indexOf(el));
-    el.style.setProperty('--d', Math.min(i, 6) * 0.09 + 's');
-    el.classList.add('in'); io.unobserve(el);
-  }), { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-  $$('[data-reveal]').forEach(el => io.observe(el));
+  let pending = $$('[data-reveal]');
+  const revealTick = () => {
+    if (!pending.length) return;
+    const groups = new Map();
+    pending = pending.filter(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < innerHeight * 0.92 && r.bottom > -50) {
+        const k = el.parentElement, n = groups.get(k) || 0; groups.set(k, n + 1);
+        el.style.setProperty('--d', Math.min(n, 6) * 0.09 + 's'); el.classList.add('in'); return false;
+      }
+      return true;
+    });
+  };
 
   /* ---------- Partir en palabras (respeta <i>) ---------- */
   function splitWords(el, wrap) {
@@ -224,7 +229,7 @@
   function frame(now) {
     const dt = Math.min(0.05, (now - last) / 1000); last = now;
     const y = scrollY;
-    navTick(y);
+    navTick(y); revealTick();
 
     // Umbral: el arco se abre hasta pantalla completa
     if (!RM && vis(umbral)) {
