@@ -15,8 +15,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..600,0..100,0..1;1,9..144,300..600,0..100,0..1&family=Instrument+Sans:wght@400..600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/aldea-prado-t.webp" imagesrcset="img/aldea-prado-t.webp 900w, img/aldea-prado.webp 2000w" imagesizes="(max-width: 900px) 92vw, 44vw">
-<link rel="stylesheet" href="css/site.css">
+<link rel="preload" as="image" href="img/nuevo-exterior-t.webp" imagesrcset="img/nuevo-exterior-t.webp 900w, img/nuevo-exterior.webp 2000w" imagesizes="(max-width: 900px) 92vw, 44vw">
+<link rel="stylesheet" href="css/site.css?v=2">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -32,7 +32,7 @@
   <nav class="nav__links" aria-label="Secciones">
     <a href="#aldea">La aldea</a>
     <a href="#habitaciones">Habitaciones</a>
-    <a href="#mesa">La mesa</a>
+    <a href="#mesa">Restaurante</a>
     <a href="#jardin">Jardín</a>
     <a href="#entorno">Entorno</a>
     <a href="#resenas">Reseñas</a>
@@ -47,7 +47,7 @@
   <nav aria-label="Menú">
     <a href="#aldea"><small>01</small>La aldea</a>
     <a href="#habitaciones"><small>02</small>Habitaciones</a>
-    <a href="#mesa"><small>03</small>La mesa</a>
+    <a href="#mesa"><small>03</small>Restaurante</a>
     <a href="#jardin"><small>04</small>El jardín</a>
     <a href="#entorno"><small>05</small>Mar y montaña</a>
     <a href="#resenas"><small>06</small>Reseñas</a>
@@ -78,7 +78,7 @@
 
   <figure class="hero__arch">
     <div class="arch">
-      <img src="img/aldea-prado-t.webp" srcset="img/aldea-prado-t.webp 900w, img/aldea-prado.webp 2000w" sizes="(max-width: 900px) 92vw, 44vw" alt="Los edificios rojos de Aldea del Trasgu con el monte detrás" width="900" height="675" fetchpriority="high">
+      <img src="img/nuevo-exterior-t.webp" srcset="img/nuevo-exterior-t.webp 900w, img/nuevo-exterior.webp 2000w" sizes="(max-width: 900px) 92vw, 44vw" alt="Los edificios rojos de Aldea del Trasgu con el monte detrás" width="900" height="675" fetchpriority="high">
     </div>
     <figcaption class="hero__score">
       <strong>4,5</strong>
@@ -99,7 +99,7 @@
 <section class="umbral" id="aldea" aria-label="La aldea">
   <div class="umbral__pin">
     <div class="umbral__frame">
-      <img src="img/jardin-patio-t.webp" srcset="img/jardin-patio-t.webp 900w, img/jardin-patio.webp 2000w" sizes="100vw" alt="Patio interior con césped, camino de piedra y la fuente en el centro" loading="lazy" width="900" height="855">
+      <img src="img/nuevo-patio-t.webp" srcset="img/nuevo-patio-t.webp 900w, img/nuevo-patio.webp 2000w" sizes="100vw" alt="Patio interior con césped, camino de piedra y la fuente en el centro" loading="lazy" width="900" height="855">
     </div>
     <p class="umbral__w umbral__w--l" aria-hidden="true">Pasa,</p>
     <p class="umbral__w umbral__w--r" aria-hidden="true"><i>adelante.</i></p>
@@ -122,7 +122,7 @@
 <!-- ============ LA ALDEA: composición editorial ============ -->
 <section class="village">
   <figure class="village__a frame" data-reveal>
-    <img src="img/aldea-montana-t.webp" srcset="img/aldea-montana-t.webp 900w, img/aldea-montana.webp 2000w" sizes="(max-width: 900px) 92vw, 58vw" alt="Fachadas rojas del hotel con la sierra detrás" loading="lazy" width="900" height="542">
+    <img src="img/nuevo-exterior-t.webp" srcset="img/nuevo-exterior-t.webp 900w, img/nuevo-exterior.webp 2000w" sizes="(max-width: 900px) 92vw, 58vw" alt="Fachadas rojas del hotel con la sierra detrás" loading="lazy" width="900" height="542">
     <div class="peek" data-peek="Dicen que el trasgu lleva gorro rojo y un agujero en la mano izquierda. Lo de las casas rojas, aquí, viene de serie."><button aria-label="¿Quién se asoma?"><svg viewBox="0 0 40 40" aria-hidden="true"><use href="#gorru"/></svg></button></div>
   </figure>
   <div class="village__copy">
@@ -144,7 +144,7 @@
     <div class="rooms__head">
       <p class="kicker"><span class="num">02</span>Habitaciones</p>
       <h2 class="h2">Once habitaciones.<br><i>Ninguna igual.</i></h2>
-      <p class="rooms__hint" aria-hidden="true"><span></span>desliza</p>
+      
     </div>
     <div class="rooms__track" id="roomsTrack">
       <figure class="room room--w"><div class="frame"><img src="img/hab-ocre-t.webp" alt="Habitación doble en tonos ocre" loading="lazy" width="900" height="556"></div><figcaption><b>Cálida</b>Ocre, madera y luz de lectura.</figcaption></figure>
@@ -173,7 +173,7 @@
 <!-- ============ LA MESA ============ -->
 <section class="table" id="mesa" aria-label="Restaurante">
   <div class="table__head">
-    <p class="kicker kicker--light"><span class="num">03</span>La mesa</p>
+    <p class="kicker kicker--light"><span class="num">03</span>Restaurante</p>
     <h2 class="display" data-reveal>Producto<br>asturiano, <i>bien<br>tratado.</i></h2>
   </div>
   <div class="table__grid">
@@ -210,7 +210,7 @@
 <section class="garden" id="jardin" aria-label="El jardín">
   <div class="garden__stage"><div class="garden__pin">
     <div class="garden__img">
-      <img src="img/fuente-t.webp" srcset="img/fuente-t.webp 900w, img/fuente.webp 2000w" sizes="100vw" alt="La fuente del patio, con azulejos y piedra" loading="lazy" width="900" height="554">
+      <img src="img/nuevo-fuente-t.webp" srcset="img/nuevo-fuente-t.webp 900w, img/nuevo-fuente.webp 2000w" sizes="100vw" alt="La fuente del patio, con azulejos y piedra" loading="lazy" width="900" height="554">
     </div>
     <div class="garden__copy">
       <p class="kicker kicker--light"><span class="num">04</span>El jardín</p>
@@ -410,7 +410,7 @@
 <!-- ============ CIERRE ============ -->
 <section class="close" aria-label="Reservar">
   <div class="close__img">
-    <img src="img/aldea-montana-t.webp" srcset="img/aldea-montana-t.webp 900w, img/aldea-montana.webp 2000w" sizes="100vw" alt="" loading="lazy" width="900" height="542">
+    <img src="img/nuevo-exterior-t.webp" srcset="img/nuevo-exterior-t.webp 900w, img/nuevo-exterior.webp 2000w" sizes="100vw" alt="" loading="lazy" width="900" height="542">
   </div>
   <div class="close__inner">
     <svg class="close__cap" viewBox="0 0 40 40" aria-hidden="true"><use href="#gorru"/></svg>
@@ -461,6 +461,6 @@
 </svg>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
-<script src="js/site.js" defer></script>
+<script src="js/site.js?v=2" defer></script>
 </body>
 </html>

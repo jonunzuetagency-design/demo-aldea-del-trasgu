@@ -131,7 +131,7 @@
   const rooms = $('.rooms'), track = $('#roomsTrack'), bar = $('#roomsBar');
   let roomsDist = 0;
   const layoutRooms = () => {
-    if (isDesk() && !RM) {
+    if (false) {
       rooms.classList.add('is-pinned'); rooms.classList.remove('no-pin');
       roomsDist = Math.max(0, track.scrollWidth - innerWidth);
       rooms.style.height = (innerHeight + roomsDist) + 'px';
@@ -304,4 +304,18 @@
   init();
   addEventListener('load', () => { layoutRooms(); measure(); });
   document.fonts && document.fonts.ready.then(() => { layoutRooms(); measure(); });
+})();
+
+/* Habitaciones: cinta automática (se para al pasar el ratón) */
+(function () {
+  var tr = document.getElementById('roomsTrack'); if (!tr) return;
+  var rm = document.querySelector('.rooms'); if (rm) { rm.classList.remove('is-pinned', 'no-pin'); rm.classList.add('auto'); }
+  tr.innerHTML += tr.innerHTML;
+  var x = 0, hover = false, half = 0, sx = null, s0 = 0;
+  var m = function () { half = tr.scrollWidth / 2; }; addEventListener('load', m); addEventListener('resize', m); m();
+  tr.addEventListener('mouseenter', function () { hover = true; }); tr.addEventListener('mouseleave', function () { hover = false; });
+  tr.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; s0 = x; hover = true; }, { passive: true });
+  tr.addEventListener('touchmove', function (e) { if (sx !== null) x = s0 - (e.touches[0].clientX - sx); }, { passive: true });
+  tr.addEventListener('touchend', function () { sx = null; hover = false; });
+  (function f() { if (!hover) x += .55; if (half) { if (x >= half) x -= half; if (x < 0) x += half; } tr.style.transform = 'translate3d(' + (-x) + 'px,0,0)'; requestAnimationFrame(f); })();
 })();
